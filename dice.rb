@@ -30,12 +30,13 @@ get ("/dice/2/6") do
   second_die = rand(1..6)
   sum = first_die + second_die
 
-  outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
 	
-  "<h1>2d6</h1>
-   <p>#{outcome}</p>"
+  erb(:two_six)
 end
 
+# anything with <%= xyz %> will allow erb to run ruby command
+# we need t add an @ in front of the outcome to make variable an instance veriable not a local variable
 
 
 # two 10-sided
