@@ -1,0 +1,34 @@
+<!-- /views/wrapper.erb -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Roll</title>
+
+  <style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+    margin-right: 50%;
+    margin-bottom: 5%
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <div class = "navbar">
+    <div><a href="/dice/home">Home</a></div>
+    <div><a href="/dice/2/6">2d6</a></div>
+    <div><a href="/dice/2/10">2d10</a></div>
+    <div><a href="/dice/1/20">1d20</a></div>
+  </div>
+
+  <!-- Here is the part that varies from action to action-->
+
+  <%= yield %>
+	
+</body>
+</html>

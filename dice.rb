@@ -22,8 +22,6 @@ end
   # We don’t have to include the .erb part of the filename because it’s assumed that all view template names will end in .erb.
 
 
-
-
 # two 6-sideded 
 get ("/dice/2/6") do
   first_die = rand(1..6)
@@ -32,7 +30,7 @@ get ("/dice/2/6") do
 
   @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
 	
-  erb(:two_six)
+  erb(:two_six, { :layout => :wrapper})
 end
 
 # anything with <%= xyz %> will allow erb to run ruby command
@@ -45,10 +43,9 @@ get ("/dice/2/10") do
   second_die = rand(1..10)
   sum = first_die + second_die
 
-  outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
+  @outcome = "You rolled a #{first_die} and a #{second_die} for a total of #{sum}."
 
-  "<h1>2d10</h1>
-  <p>#{outcome}</p>"
+  erb(:two_ten, {:layout => :wrapper})
 end
 
 
@@ -57,8 +54,7 @@ get ("/dice/1/20") do
   first_die = rand(1..20)
   sum = first_die
 
-  outcome = "You rolled a die of #{first_die}, and the sum is #{sum}."
+  @outcome = "You rolled a die of #{first_die}, and the sum is #{sum}."
 
-  "<h1>1d20</h1>
-  <p>#{outcome}</p>"
+  erb(:one_twenty, {:layout => :wrapper})
 end
