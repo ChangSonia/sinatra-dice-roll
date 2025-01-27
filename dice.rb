@@ -22,6 +22,19 @@ end
   # We don’t have to include the .erb part of the filename because it’s assumed that all view template names will end in .erb.
 
 
+# a hundred rolls of 6 sided
+
+get("/dice/100/6") do
+  @rolls = []
+  100.times do
+    die = rand(1..6)
+    @rolls<<(die)
+  end
+
+  erb(:one_hundred_six,{:layout => :wrapper})
+end
+
+
 # two 6-sideded 
 get ("/dice/2/6") do
   first_die = rand(1..6)
