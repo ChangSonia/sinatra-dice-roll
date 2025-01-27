@@ -51,10 +51,9 @@ end
 
 # one 20-sided
 get ("/dice/1/20") do
-  first_die = rand(1..20)
-  sum = first_die
+  @die = rand(1..20)
 
-  @outcome = "You rolled a die of #{first_die}, and the sum is #{sum}."
+  @outcome = "You rolled a die of #{@die}."
 
   erb(:one_twenty, {:layout => :wrapper})
 end
